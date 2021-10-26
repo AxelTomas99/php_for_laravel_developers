@@ -1,17 +1,20 @@
 <?php
 
+use Framework\Database\Database;
+
 require 'config.php';
 require 'app/helpers.php';
-require 'app/Task.php';
+require 'app/Models/Task.php';
+require 'framework/Database/Database.php';
+require 'framework/Database/Connection.php';
 
 
-$dbh = connectDB($config);
+//WISHFUL PROGRAMMING
+$database = new Database($config);
+$tasks = $database->selectAll('tasks');
+//$tasks = Database::selctAll('tasks'); // Crida estatica -> sense new
+//$tasks = Task::selctAll('tasks'); -> Laravel Eloquent
 
-$statement = $dbh->prepare('SELECT * FROM tasks;');
-$statement->execute();
-
-$tasks = $statement->fetchAll(PDO::FETCH_CLASS, 'Task');
 
 $greeting = greet();
-
 
