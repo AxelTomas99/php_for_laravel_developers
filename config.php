@@ -1,6 +1,6 @@
 <?php
 
-$config = [
+return [
     'database' =>[
         'user' => 'debian-sys-maint',
         'password' => '9oMHFn0BQY1eixgg',
