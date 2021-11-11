@@ -2,8 +2,6 @@
 
 namespace Framework\Database;
 
-use App\Models\Task;
-use Framework\App;
 use PDO;
 
 class Database
@@ -15,11 +13,13 @@ class Database
         $this->pdo = $pdo;
     }
 
-    function selectAll($table){
-        $statement = $this -> pdo->prepare("SELECT * FROM $table;");
+    public function selectAll($table) {
+
+        $statement = $this->pdo->prepare("SELECT * FROM $table;");
+
         $statement->execute();
 
-        return $statement->fetchAll(PDO::FETCH_CLASS, Task::class);
+        return $statement->fetchAll(PDO::FETCH_CLASS);
     }
 
     function insert()

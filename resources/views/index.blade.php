@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
-        header{
+        header {
             background: beige;
             padding: 2em;
             text-align: center;
@@ -15,27 +15,36 @@
     </style>
 </head>
 <body>
-    <header>
-        <h1><?=$greeting;?></h1>
+<nav>
+    <ul>
+        <li><a href="/tasks.html">Tasks</a></li>
+        <li><a href="/users.html">Users</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/index.php">Home</a></li>
+    </ul>
+</nav>
+<header>
+    <h1><?=$greeting;?></h1>
 
-        <table>
-            <tr>
-                <td>Id</td>
-                <td>Title</td>
-                <td>Description</td>
-                <td>Completed</td>
-            </tr>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Completed</th>
+        </tr>
 
-            <?php foreach ($tasks as $task): ?>
-            <tr>
-                <td><?= $task->id; ?></td>
-                <td><?= $task->title; ?></td>
-                <td><?= $task->description; ?></td>
-                <td><?= $task->completed; ?></td>
-            </tr>
-            <?php endforeach; ?>
-        </table>
-    </header>
+        <?php foreach ($tasks as $task): ?>
+        <tr>
+            <td><?=$task->id;?></td>
+            <td><?=$task->title;?></td>
+            <td><?=$task->description;?></td>
+            <td><?=$task->completed;?></td>
+        </tr>
+        <?php endforeach; ?>
+
+    </table>
+</header>
 </body>
 </html>
-

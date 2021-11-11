@@ -4,23 +4,21 @@ namespace Framework;
 
 use Exception;
 
-class App
-{
-    //API
-    //BIND -> Setter -> Afegir un objecte
-    //get -> getter
-    //getters i setters
-    private static $container=[];
+class App {
+
+    private static $container = [];
+
     public static function bind($key, $value)
     {
         static::$container[$key] = $value;
     }
 
-    public function get($key)
+    public static function get($key)
     {
-        if (! array_key_exists($key,static::$container)){
+        if (! array_key_exists($key, static::$container)) {
             throw new Exception("No {$key} is bound in the container.");
         }
         return static::$container[$key];
     }
+
 }
